@@ -26,6 +26,22 @@
   Install firebase as a dependency,<br /> initiate the firebaseApp with firebase(),<br /> a databse with firestore(),<br /> auth with firebase.auth() and a provider.
 * The provider initiated gives the project, a google authentication provider. Export all of them as named exports.
 
+## Dependencies
+
+"@material-ui/core"
+"@material-ui/icons"
+"@reduxjs/toolkit"
+"firebase"
+"react"
+"react-countdown-circle-timer"
+"react-dom"
+"react-redux"
+"react-router-dom"
+"react-scripts"
+"react-timeago"
+"react-webcam"
+"uuid"
+
 ## Components
 
 **CameraModule**
@@ -62,7 +78,37 @@ _The redux dev tools helps in understanding the redux operation better_
   `const uploadTask = storage.ref(`/posts/${id}`).putString(cameraImg, "data_url");`
   `uploadTask.on("state_changed", null, (error)=> {console.log(error)}, ()=> {//complete function});`
 
-- the complete function had properties of the firebase to get the payload from store & pushes it to chats page
+- the complete function had properties of the firebase to get the payload from store & pushes it to chats page.
+
+**Chats**
+
+- customize the chats page to that of a mobile display.
+- order the snapshots in descending order w.r.t to timestamp & set the data & id to the posts state in the posts page.
+- map over the array of posts & for every single post, return
+  `( id, data: {profilePic, username, timestamp, imageUrl, read})` <br /> & fill the data in Chat component which displays induvidual chat logs & data.
+- A signout function is created onClick at user avatar in the chats. The name & profilePic are added to chats..
+
+**Chat**
+-It takes in 6 props & customized in the chat format.
+
+- The timestamp is in a wierd format in the storage. To convert it into a time-ago format, a fependency is imported >> _react-timeago_
+  `<p>tap to view - <ReactTimeago data={new Date(timestamp?.toDate()).toUTCString()} /></p>`
+- the chat div redirected to ChatView page to display the payload.
+
+**ChatView**
+
+- A useSelector() hook get the chat-info(img) is fired in chatView component.
+- A condition of if the img doesn't exist, reirect to Chat page is employed through useEffect().
+  (Incase deleted by the user, exit the page).
+- the chatView contains the payload (img) and a remaining countdown timer for 10s with 33% color difference.
+
+**Login**
+
+- A user selector is created with login, logout, selectImg, resetimg actions in the appSlice reducer.
+- A clause of redirect to login or home based on user presence is created in the root component to create a safe-routes for the project.
+- The authentication is monitored by Google-Authentication.
+- To make the login persistant, a useEffect is dispatched based on the clause,
+  `auth.onAuthStateChanged(authUser => { if(authUser) { dispatch( login({ username: authUser.username, profilePic: authUser.photoURL, id: authUser.uid }); ) } else { dispatch(logout()); }, [])`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
