@@ -6,7 +6,9 @@
     <img width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRws7yUwENFSPF9-csO1_Vt6VSo6zpRImDI7A&usqp=CAU" alt="snapchat" />
 </p>
 
-[click here](https://snapchat-clone-1388b.web.app/) to go to Snapchat clone.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+[Click here](https://snapchat-clone-1388b.web.app/) to go to Snapchat clone.
 
 ## Stock
 
@@ -74,8 +76,8 @@ _The redux dev tools helps in understanding the redux operation better_
 
 - The send icon redirects the project & paymoad to chats page.
 - install a dependency uuid to generate a safe random string to prevent collisions.
-- upload the img to store (reference database) & b/c the img is in base64 format, it is converted in to data_url format.
-  `const uploadTask = storage.ref(`/posts/${id}`).putString(cameraImg, "data_url");`
+- upload the img to store (reference database) & b/c the img is in base64 format, it is converted in to data_url format.<br />
+  `const uploadTask = storage.ref('/posts/${id}').putString(cameraImg, "data_url");`<br />
   `uploadTask.on("state_changed", null, (error)=> {console.log(error)}, ()=> {//complete function});`
 
 - the complete function had properties of the firebase to get the payload from store & pushes it to chats page.
@@ -84,14 +86,14 @@ _The redux dev tools helps in understanding the redux operation better_
 
 - customize the chats page to that of a mobile display.
 - order the snapshots in descending order w.r.t to timestamp & set the data & id to the posts state in the posts page.
-- map over the array of posts & for every single post, return
+- map over the array of posts & for every single post, return. <br />
   `( id, data: {profilePic, username, timestamp, imageUrl, read})` <br /> & fill the data in Chat component which displays induvidual chat logs & data.
 - A signout function is created onClick at user avatar in the chats. The name & profilePic are added to chats..
 
 **Chat**
 -It takes in 6 props & customized in the chat format.
 
-- The timestamp is in a wierd format in the storage. To convert it into a time-ago format, a fependency is imported >> _react-timeago_
+- The timestamp is in a wierd format in the storage. To convert it into a time-ago format, a dependency is imported >> _react-timeago_<br />
   `<p>tap to view - <ReactTimeago data={new Date(timestamp?.toDate()).toUTCString()} /></p>`
 - the chat div redirected to ChatView page to display the payload.
 
@@ -107,8 +109,10 @@ _The redux dev tools helps in understanding the redux operation better_
 - A user selector is created with login, logout, selectImg, resetimg actions in the appSlice reducer.
 - A clause of redirect to login or home based on user presence is created in the root component to create a safe-routes for the project.
 - The authentication is monitored by Google-Authentication.
-- To make the login persistant, a useEffect is dispatched based on the clause,
+- To make the login persistant, a useEffect is dispatched based on the clause,<br />
   `auth.onAuthStateChanged(authUser => { if(authUser) { dispatch( login({ username: authUser.username, profilePic: authUser.photoURL, id: authUser.uid }); ) } else { dispatch(logout()); }, [])`
+  
+  ****
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
