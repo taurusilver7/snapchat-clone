@@ -78,6 +78,7 @@ _The redux dev tools helps in understanding the redux operation better_
 - install a dependency uuid to generate a safe random string to prevent collisions.
 - upload the img to store (reference database) & b/c the img is in base64 format, it is converted in to data_url format.<br />
   `const uploadTask = storage.ref('/posts/${id}').putString(cameraImg, "data_url");`<br />
+
   `uploadTask.on("state_changed", null, (error)=> {console.log(error)}, ()=> {//complete function});`
 
 - the complete function had properties of the firebase to get the payload from store & pushes it to chats page.
@@ -111,8 +112,7 @@ _The redux dev tools helps in understanding the redux operation better_
 - The authentication is monitored by Google-Authentication.
 - To make the login persistant, a useEffect is dispatched based on the clause,<br />
   `auth.onAuthStateChanged(authUser => { if(authUser) { dispatch( login({ username: authUser.username, profilePic: authUser.photoURL, id: authUser.uid }); ) } else { dispatch(logout()); }, [])`
-  
-  ****
+****
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
