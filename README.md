@@ -6,7 +6,9 @@
     <img width="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRws7yUwENFSPF9-csO1_Vt6VSo6zpRImDI7A&usqp=CAU" alt="snapchat" />
 </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## About the App
+> Snapchat is an American multimedia messaging app developed by Snap Inc., originally Snapchat Inc.
+> One of the principal features of Snapchat is that pictures and messages are usually only available for a short time before they become inaccessible to their recipients.
 
 [Click here](https://snapchat-clone-1388b.web.app/) to go to Snapchat clone.
 
